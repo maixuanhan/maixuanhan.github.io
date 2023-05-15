@@ -55,8 +55,9 @@ Explanation: The strings `101000` and `001000` differ only at the first position
 
 For any problem, before jumping into the coding part, let's spend some time to analyze it.
 
-The naive solution is to check every pair of strings to find out the distance between them, and then find the minimum result and print it out. The number of comparison will be around `n ⋅ n ⋅ k` which means the complexity of the solution will be O(n⋅n⋅k). This is not good enough and it's going to exceed the time limit for a worst case scenario.
+The naive solution is to check every pair of strings to find out the distance between them, and then find the minimum result and print it out. The number of comparison will be around `n ⋅ n ⋅ k` which means the complexity of the solution will be O(n⋅n⋅k). This is not good enough and it's going to exceed the time limit for a worst case scenario. (Refer this [blog][codeforces-blog-guessing-algorithm] on how to "guess" a big O will pass a specific data size.)
 
 (continue)
 
 [problem-source]: https://cses.fi/problemset/task/2136
+[codeforces-blog-guessing-algorithm]: https://codeforces.com/blog/entry/21344
