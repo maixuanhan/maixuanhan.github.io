@@ -6,7 +6,7 @@ categories: coding problem
 --- 
 The CSES Problem Set is a collection of algorithmic programming problems provided by Code Submission Evaluation System website. The following problem is randomly picked from it. You can find it [here][problem-source].
 
-## Hamming Distance
+## The problem
 
 The Hamming distance between two strings `a` and `b` of equal length is the number of positions where the strings differ.
 
@@ -55,9 +55,18 @@ Explanation: The strings `101000` and `001000` differ only at the first position
 
 For any problem, before jumping into the coding part, let's spend some time to analyze it.
 
-The naive solution is to check every pair of strings to find out the distance between them, and then find the minimum result and print it out. The number of comparison will be around `n ⋅ n ⋅ k` which means the complexity of the solution will be O(n⋅n⋅k). This is not good enough and it's going to exceed the time limit for a worst case scenario. (Refer this [blog][codeforces-blog-guessing-algorithm] on how to "guess" a big O will pass a specific data size.)
+The naive solution is to check every pair of strings to find out the distance between them, and then find the minimum result and print it out. To compare a pair of strings, it will take `k` comparison for looping through the whole length of the strings. For `n` strings, the number of pairs will be `n ⋅ (n + 1) / 2`. Hence, the number of comparison will be around `k ⋅ n ⋅ (n + 1) / 2` which means the complexity of the solution will be O(n⋅n⋅k). This is not good enough and it is going to exceed the time limit for the worst case scenario. (Refer this [blog][codeforces-blog-guessing-algorithm] on how to "guess" a big O that will pass a specific data size.)
 
-(continue)
+Hold on, why is the `k` surprisingly small? And those strings are not any arbitrary strings. Those are bit strings. A bit string with smaller-than-thirty length can just fit in a four byte integer. If we store the strings as integers, the Hamming distance between two strings is also the Hamming distance between two integers. The XOR operator returns value 1 if the two comparing bits are different. In other words, the Hamming distance between two integers `a` and `b` is the number of bit-1 (set bit) of the result of `a XOR b`.
+
+Counting set bits of an integer is a constant time operation if we use the [Hamming weight][hamming-weight-alg-wiki] method. Although implementing the method is the purpose of this problem but I advise that you only read the article for the information and have some idea about the method. Some programming languages have already supported it. For example, C++20 provides `std::popcount()`; Python3 provides `int.bit_count()`. Many C/C++ compilers, such as GCC, MSVC also have built-in functions that support the method.
+
+Back to the problem, because the distance calculation time is now constant, the complexity of the solution becomes O(n⋅n) which is acceptable.
+
+## Solution
+
+(TODO) or you do :)
 
 [problem-source]: https://cses.fi/problemset/task/2136
 [codeforces-blog-guessing-algorithm]: https://codeforces.com/blog/entry/21344
+[hamming-weight-alg-wiki]: https://en.wikipedia.org/wiki/Hamming_weight
