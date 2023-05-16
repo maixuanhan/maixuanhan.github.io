@@ -65,7 +65,45 @@ Back to the problem, because the distance calculation time is now constant, the 
 
 ## Solution
 
-(TODO) or you do :)
+```cpp
+#include <bit>
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main()
+{
+    int n, k;
+    std::cin >> n >> k;
+
+    std::vector<int> arr;
+    int min = k;
+
+    for (int i = 0; i < n; ++i)
+    {
+        std::string str;
+        std::cin >> str;
+        int num = std::stoi(str, nullptr, 2);
+
+        for (int x : arr)
+        {
+            int distance = std::popcount((unsigned int)(num ^ x));
+
+            if (distance < min)
+            {
+                min = distance;
+            }
+        }
+
+        arr.push_back(num);
+    }
+
+    std::cout << min;
+    return 0;
+}
+```
+
+I tried uploading this solution and luckily it passed on the tests.
 
 [problem-source]: https://cses.fi/problemset/task/2136
 [codeforces-blog-guessing-algorithm]: https://codeforces.com/blog/entry/21344
