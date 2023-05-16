@@ -65,7 +65,7 @@ Back to the problem, because the distance calculation time is now constant, the 
 
 ## Solution
 
-```cpp
+{% highlight cpp %}
 #include <bit>
 #include <iostream>
 #include <vector>
@@ -101,9 +101,9 @@ int main()
     std::cout << min;
     return 0;
 }
-```
+{% endhighlight %}
 
-I tried uploading this solution and luckily it passed on the tests.
+I tried submitting this solution and luckily it passed all the tests.
 
 [problem-source]: https://cses.fi/problemset/task/2136
 [codeforces-blog-guessing-algorithm]: https://codeforces.com/blog/entry/21344
