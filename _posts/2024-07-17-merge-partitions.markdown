@@ -64,8 +64,11 @@ sudo mount /dev/mmcblk0p1 /tmp/somename
 sudo nano /tmp/somename/cmdline.txt
 ```
 
-## 5. Reboot
+## 5. Reboot (optional)
 
 ```sh
 sudo reboot
 ```
+
+> [!TIP]
+> If there are multiple partitions with different types, it's better to merge the second merging partition with the rest and merge the first and the second.
