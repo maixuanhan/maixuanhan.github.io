@@ -18,7 +18,7 @@ sudo lsblk
 
 ## 2. Format disk
 
-You can only merge the adjacent partitions.
+You can only merge the adjacent partitions. All merging partitions must be unmounted (except the first one).
 
 > [!CAUTION]
 > The data on subsequent partition (after the first one) will be erased.
@@ -45,6 +45,9 @@ After fortmatting disk, if you check `df -h` the output should be the same since
 
 ```sh
 sudo resize2fs /dev/mmcblk0p2
+
+# If there is any issues, try to fix with
+sudo e2fsck -f /dev/mmcblk0p2
 ```
 
 ## 4. Update boot config, mount config (if needed)
